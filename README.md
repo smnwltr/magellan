@@ -1,0 +1,2 @@
+# magellan
+travel planning app
