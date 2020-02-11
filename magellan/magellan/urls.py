@@ -1,13 +1,14 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
 from django.http import HttpResponse
-
-
-def index(request):
-    return HttpResponse("Hello, world. This is Magellan!!")
-
+from django.conf import settings
 
 urlpatterns = [
+    path('', include('pages.urls')),
     path('admin/', admin.site.urls),
-    path('', index, name='index')
 ]
+
+if settings.ENVIRONMENT == 'Staging':
+    urlpatterns.append(re_path(r'robots.txt',
+                               lambda request: HttpResponse("User-agent: *\nDisallow: /", content_type="text/plain"),
+                               name="robots_file"))
