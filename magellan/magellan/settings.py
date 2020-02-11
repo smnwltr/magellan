@@ -11,8 +11,20 @@ DEBUG = config('DEBUG', cast=bool, default=False)
 ENVIRONMENT = config('ENVIRONMENT')
 DATABASE_URL = config('DATABASE_URL')
 
+# AWS Variables
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_DEFAULT_ACL = None
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.eu-central-1.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+# TODO: Secure bucket with working CORS
+
 if ENVIRONMENT == 'Staging':
-    ALLOWED_HOSTS = ['magellan-staging.herokuap.com']
+    ALLOWED_HOSTS = ['magellan-staging.herokuapp.com']
 else:
     ALLOWED_HOSTS = []
 
@@ -28,6 +40,7 @@ INSTALLED_APPS = [
 
     # Vendor
     'sass_processor',
+    'storages',
 
     # Proprietary
     'pages.apps.PagesConfig',
@@ -48,7 +61,7 @@ ROOT_URLCONF = 'magellan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,21 +115,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_DEFAULT_ACL = None
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
 if ENVIRONMENT == 'Development':
-    STATIC_URL = '/static/'
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# else:
-#     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-#     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+elif ENVIRONMENT == 'Staging':
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'sass_processor.finders.CssFinder',
 ]
-
-# Configure Django App for Heroku.
-import django_heroku
-
-django_heroku.settings(locals())

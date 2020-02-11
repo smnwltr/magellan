@@ -1,12 +1,13 @@
 asgiref==3.2.3
-boto3==1.11.14
-botocore==1.14.14
+boto3==1.11.15
+botocore==1.14.15
 dj-database-url==0.5.0
 Django==3.0.3
 django-appconf==1.0.3
 django-compressor==2.4
 django-heroku==0.3.1
 django-sass-processor==0.8
+django-storages==1.9.1
 docutils==0.15.2
 gunicorn==20.0.4
 jmespath==0.9.4
@@ -21,4 +22,3 @@ s3transfer==0.3.3
 six==1.14.0
 sqlparse==0.3.0
 urllib3==1.25.8
-whitenoise==5.0.1
