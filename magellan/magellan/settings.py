@@ -14,7 +14,7 @@ DEBUG = config('DEBUG', cast=bool, default=False)
 ENVIRONMENT = config('ENVIRONMENT')
 DATABASE_URL = config('DATABASE_URL')
 
-ALLOWED_HOSTS = ['localhost', 'magellan-staging.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -97,3 +97,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Configure Django App for Heroku.
+import django_heroku
+
+django_heroku.settings(locals())
