@@ -1,0 +1,43 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ app_name }} - {% block title %}Optimize your travels{% endblock title %}</title>
+    <meta name="description"
+          content="{{ app_name }}  helps you get the most out of your travels. Create packing lists, budgets, and plan every day.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <meta name="theme-color" content="#fafafa">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'css/main.scss' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    {% block head %}
+    {% endblock head %}
+</head>
+
+<body>
+
+<div class="main">
+    {% block content %}
+    {% endblock content %}
+</div>
+
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% block scripts %}
+{% endblock scripts %}
+
+</body>
+</html>
