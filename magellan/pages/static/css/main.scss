@@ -25,14 +25,12 @@ $terciary-color: $magellan-yellow;
   margin-left: 80px;
 
   &:hover {
-    color: $primary-color;
-    font-size: 295%;
+    color: darken($primary-color, 5%);
   }
 }
 
 .navbar {
   background-color: #fff;
-  margin-bottom: 2rem;
 
   li {
     display: table-cell;
@@ -90,6 +88,10 @@ $terciary-color: $magellan-yellow;
       color: dimgrey;
     }
   }
+
+  .btn-primary {
+    box-shadow: none;
+  }
 }
 
 
@@ -115,6 +117,10 @@ $terciary-color: $magellan-yellow;
   }
 }
 
+.btn-cta {
+  box-shadow: 3px 5px 3px rgba(black, 0.5);
+}
+
 
 /* other base */
 
@@ -129,6 +135,14 @@ $terciary-color: $magellan-yellow;
 
   .cr-line {
     margin-top: auto;
+  }
+
+  a {
+    color: lighten(black, 10%);
+
+    &:hover {
+      color: lighten(black, 20%)
+    }
   }
 }
 
@@ -156,4 +170,33 @@ $terciary-color: $magellan-yellow;
     font-weight: bolder;
   }
 }
+
+.feature-section {
+  margin-top: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 1.25rem;
+    font-weight: bolder;
+  }
+}
+
+.highlighter {
+  background: linear-gradient(to bottom, transparent 65%, rgba($magellan-yellow, 0.75) 0) center center/10% 75% no-repeat;
+  background-size: 100% 100%;
+  padding: .5rem 1rem;
+}
+
 

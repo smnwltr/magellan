@@ -115,3 +115,81 @@
   height: 5px;
   width: 24px;
 }
+
+
+/* Browser frame via https://codepen.io/ecutler/pen/dMQNgR */
+
+// Variables
+$browser-chrome: #E6ECEF;
+$browser-controls: #BEC4C6;
+$close: #FF8585;
+$minimise: #FFD071;
+$maximise: #74ED94;
+$border-radius-large: 10px;
+$border-radius-small: 3px;
+$control-height: 25px;
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.browser-frame {
+  border-radius: $border-radius-large;
+  box-shadow: 1px 5px 3px rgba(black, 0.25);
+  overflow: hidden;
+  max-width: 600px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.bf-browser-controls {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: $browser-chrome;
+  color: $browser-controls;
+}
+
+.bf-window-controls {
+  flex: 0 0 60px;
+  margin: 0 2%;
+
+  span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    background: $close;
+
+    &.bf-minimise {
+      background: $minimise;
+    }
+
+    &.bf-maximise {
+      background: $maximise;
+    }
+  }
+}
+
+.bf-url-bar {
+  flex-grow: 1;
+  margin-right: 2%;
+  padding: 5px 5px 0 10px;
+  font-family: monospace;
+  color: darken($browser-controls, 20%);
+  overflow: hidden;
+}
+
+
+.bf-white-container {
+  height: $control-height;
+  border-radius: $border-radius-small;
+  background: white;
+}

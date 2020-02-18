@@ -70,7 +70,7 @@
                     <a class="dropdown-item" href="">My Profile</a>
                     <div class="dropdown-divider"></div>
 
-                    <a class="dropdown-item" href="{% url 'account_logout' %}">Abmelden</a>
+                    <a class="dropdown-item" href="">Abmelden</a>
                 </div>
 
                 {% else %}
@@ -102,9 +102,11 @@
 </div>
 
 <div class="container-fluid border-top mt-5 footer" style="height: 200px">
-    <p class="text-center font-weight-light cr-line"><small>Copyright &copy; 2019-2020 Magellan. <a
-            href="https://icons8.com/">Icons by Icons8</a></small></p>
-
+    <div class="container text-center font-weight-light">
+        <p class="mt-5"><a href="/imprint/">Imprint</a></p>
+        <p><a href="/privacy-policy/">Privacy Policy</a></p>
+        <p class="cr-line"><small>Copyright &copy; 2019-2020 {{app_name}}.</small></p>
+    </div>
 </div>
 
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

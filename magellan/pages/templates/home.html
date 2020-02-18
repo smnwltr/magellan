@@ -4,10 +4,53 @@
 {% block content %}
 
 <div class="container-fluid header-home" style="background-image: url('{% static 'img/header.jpg' %}')">
-    <div class="container jumbotron-fluid jumbo-home text-center d-none d-md-block">
+    <div class=" jumbotron-fluid jumbo-home text-center d-none d-md-block">
         <h1 class="display-3 font-weight-bolder">Going on vacation <br/>or a business trip?</h1>
         <h2 class="lead font-weight-bolder">{{ app_name }} helps you optimize your travels</h2>
-        <p class="lead"><a href="#" class="btn btn-primary mt-2">Start now</a></p>
+        <p class="lead"><a href="#" class="btn btn-primary mt-2 btn-cta">Start Now</a></p>
+    </div>
+</div>
+
+<div class="container feature-section">
+    <div class="row">
+        <div class="col-md order-md-12">
+            <h2 class="display-4"><span class="highlighter">Packlist</span></h2>
+            <p>Packlist subline</p>
+            <p class="lead"><a href="#" class="btn btn-primary mt-2 btn-cta">Pack Now</a></p>
+        </div>
+
+        <div class="col-md order-md-0">
+            <img src="https://via.placeholder.com/600x400" alt="{{app_name}}" class="browser-frame-it img-fluid"/>
+        </div>
+    </div>
+</div>
+
+<div class="container feature-section">
+    <div class="row">
+        <div class="col-md order-md-0">
+            <h2 class="display-4"><span class="highlighter">Budget</span></h2>
+            <p>Budget subline</p>
+            <p class="lead"><a href="#" class="btn btn-primary mt-2 btn-cta">Track Now</a></p>
+        </div>
+
+        <div class="col-md order-md-12">
+            <img src="https://via.placeholder.com/600x400" alt="{{app_name}}" class="browser-frame-it img-fluid"/>
+        </div>
+
+    </div>
+</div>
+
+<div class="container feature-section">
+    <div class="row">
+        <div class="col-md order-md-12">
+            <h2 class="display-4"><span class="highlighter">Calendar</span></h2>
+            <p>Calendar subline</p>
+            <p class="lead"><a href="#" class="btn btn-primary mt-2 btn-cta">Plan Now</a></p>
+        </div>
+
+        <div class="col-md order-md-0">
+            <img src="https://via.placeholder.com/600x400" alt="{{app_name}}" class="browser-frame-it img-fluid"/>
+        </div>
     </div>
 </div>
 
