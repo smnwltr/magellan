@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Vendor
     'sass_processor',
     'storages',
+    'crispy_forms',
 
     # Proprietary
     'pages.apps.PagesConfig',
