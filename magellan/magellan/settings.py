@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'sass_processor',
     'storages',
     'crispy_forms',
+    'allauth',
+    'allauth.account',
 
     # Proprietary
     'pages.apps.PagesConfig',
@@ -61,6 +63,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'magellan.data.app_data',
+
+                # Allauth needs this from django
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -134,3 +139,33 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'sass_processor.finders.CssFinder',
 ]
+
+# Allauth, Login, Email setup
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of Allauth
+    'django.contrib.auth.backends.ModelBackend',
+    # Allauth specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = 'home'
