@@ -160,7 +160,7 @@ html {
   font-size: 300%;
   font-weight: bold;
   color: #1f68bf;
-  margin-left: 80px; }
+  margin-left: 25px; }
   .navbar-brand:hover {
     color: #1b5ca9; }
 
@@ -278,5 +278,10 @@ html {
   background: linear-gradient(to bottom, transparent 65%, rgba(255, 223, 0, 0.75) 0) center center/10% 75% no-repeat;
   background-size: 100% 100%;
   padding: .5rem 1rem; }
+
+/* Account styling */
+.container-account {
+  max-width: 500px;
+  padding-top: 5em; }
 
 /*# sourceMappingURL=main.css.map */

@@ -30,7 +30,9 @@
 
 
 <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand" href="/"> {{ app_name }} </a>
+
+    <a class="navbar-brand" href="/"><img src="{% static 'icon/world.svg' %}" height="50px"
+                                          style="margin-bottom: 10px"/> {{ app_name }} </a>
 
     <button class="navbar-toggler hamburger hamburger--spring d-md-none" type="button" data-toggle="collapse"
             data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +98,7 @@
     </div>
 </nav>
 
-<div class="main pt-5">
+<div class="main">
     {% block content %}
     {% endblock content %}
 </div>

@@ -22,7 +22,7 @@ $terciary-color: $magellan-yellow;
   font-size: 300%;
   font-weight: bold;
   color: $primary-color;
-  margin-left: 80px;
+  margin-left: 25px;
 
   &:hover {
     color: darken($primary-color, 5%);
@@ -200,3 +200,9 @@ $terciary-color: $magellan-yellow;
 }
 
 
+/* Account styling */
+
+.container-account {
+  max-width: 500px;
+  padding-top: 5em;
+}
