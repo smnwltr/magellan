@@ -1,0 +1,20 @@
+{% extends '../_base.html' %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Login to your account now</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-primary" type="submit">Login</button>
+        <br>
+    </form>
+    <a href="{% url 'account_reset_password' %}" class="btn btn-outline-primary mt-5">Forgot password?</a>
+    <p>Already have an account? <a href="{% url 'account_login' %}">Login here</a></p>
+
+</div>
+
+{% endblock %}

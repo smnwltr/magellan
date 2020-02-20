@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
 
     # Proprietary
     'pages.apps.PagesConfig',
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'magellan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'pages', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

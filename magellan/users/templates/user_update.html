@@ -1,0 +1,31 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Edit profile{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1>Edit {% if user.first_name %}{{user.first_name}}'s {% endif %}profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        {% if user.profile_images.last.imag %}
+        <img class="mt-1 mb-2" src="{% get_media_prefix %}{{user.profile_images.last.image}}"
+             style="height: 100px; width: auto"
+             alt="Profilbild von {{user.firstname}}">
+        {% endif %}
+        {{ formset.management_form }}
+        {% for f in formset %}
+        {{ f|crispy }}
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+
+{% endblock %}

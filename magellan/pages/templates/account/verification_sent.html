@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% load socialaccount %}
+
+{% block title %}"Bestätige deine E-Mail Adresse"{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Confirm your email address</h2>
+    <p>We have sent you an email. Please follow the instructions in order to activate your account.</p>
+
+    <a href="{% url 'home' %}" class="btn btn-primary mt-5">Continue to homepage</a>
+
+</div>
+
+{% endblock %}
