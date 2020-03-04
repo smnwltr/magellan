@@ -176,24 +176,3 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'home'
-
-# Web App Manifest
-WEB_APP_MANIFEST = {
-    "short_name": "Magellan",
-    "name": "Magellan",
-    "icons": [
-        {
-            "src": "{}{}".format(STATIC_URL, "css/icons/android-chrome-192x192.png"),
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "{}{}".format(STATIC_URL, "css/icons/android-chrome-512x512.png"),
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#1f68bf",
-    "background_color": "ffdf00",
-    "display": "standalone",
-}
